@@ -3,7 +3,7 @@ import React from 'react';
 const RootPage = () => {
     return (
         <p>
-            Hello
+            루트페이지입니다.
         </p>
     );
 };
