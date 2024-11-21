@@ -1,1 +1,11 @@
-export {RootPage as default} from '@/views/root';
+import React from 'react';
+
+const RootPage = () => {
+    return (
+        <p>
+            루트페이지입니다.
+        </p>
+    );
+};
+
+export default RootPage;
