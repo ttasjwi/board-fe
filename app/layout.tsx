@@ -2,8 +2,8 @@ import {Noto_Sans_KR} from "next/font/google";
 import React from "react";
 import "./globals.css";
 import {Header} from "@/components/header";
-
 import {Metadata} from "next";
+import {QueryClientProviderWrapper} from "@/context/QueryClientProviderWrapper";
 
 export const metadata: Metadata = {
     title: {
@@ -24,10 +24,12 @@ const RootLayout = ({children}: Readonly<Props>) => {
     return (
         <html lang="ko" className={sans.className}>
         <body>
-        <Header />
-        <main>
-            {children}
-        </main>
+        <QueryClientProviderWrapper>
+            <Header/>
+            <main>
+                {children}
+            </main>
+        </QueryClientProviderWrapper>
         </body>
         </html>
     );
