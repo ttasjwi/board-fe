@@ -1,5 +1,7 @@
 'use client';
 import React, {useState} from "react";
+import {RegisterFormInput} from "./RegisterFormInput";
+import {RegisterFormButton} from "./RegisterFormButton";
 
 export type FormData = {
     email: string,
@@ -40,110 +42,70 @@ const RegisterForm = () => {
                 <label className={'text-xl font-bold'} htmlFor={'email'}>이메일</label>
                 <p className={'text-gray-500'}>이메일 주소를 입력해주세요.</p>
                 <div className={'mb-2'}>
-                    <input id={'email'}
-                           name={'email'}
+                    <RegisterFormInput
+                           idAndName={'email'}
                            type={'email'}
                            onChange={handleFormChange}
                            value={form.email}
-                           required={true}
-                           className={'py-2 px-4 border border-solid border-black outline-none'}
                     />
-                    <button
-                        type={'button'}
-                        className={'py-2 px-4 border border-solid border-black text-black'}
-                    >중복 확인
-                    </button>
-                    <button
-                        type={'button'}
-                        className={'py-2 px-4 border border-solid border-black text-black'}
-                    >이메일 발송
-                    </button>
+                    <RegisterFormButton text={'유효성 확인'} />
+                    <RegisterFormButton text={'이메일 발송'} />
                 </div>
                 <div>
                     <label className={'text-xl font-bold'} htmlFor={'code'}>이메일 인증코드</label>
                     <p className={'text-gray-500'}>이메일 인증코드를 입력해주세요.</p>
-                    <input id={'code'}
-                           name={'code'}
-                           type={'text'}
-                           onChange={handleFormChange}
-                           value={form.code}
-                           className={'py-2 px-4 border border-solid border-black outline-none'}
-                           required={true}
+                    <RegisterFormInput
+                        idAndName={'code'}
+                        type={'text'}
+                        onChange={handleFormChange}
+                        value={form.code}
                     />
-                    <button
-                        type={'button'}
-                        className={'py-2 px-4 border border-solid border-black text-black'}
-                    >이메일 인증
-                    </button>
+                    <RegisterFormButton text={'이메일 인증'} />
                 </div>
             </div>
             <div>
                 <label className={'text-xl font-bold'} htmlFor={'password'}>패스워드</label>
                 <p className={'text-gray-500'}>패스워드는 4자 이상 32자 이하여야합니다.</p>
-                <input
-                    id={'password'}
-                    name={'password'}
+                <RegisterFormInput
+                    idAndName={'password'}
                     type={'password'}
                     onChange={handleFormChange}
                     value={form.password}
-                    className={'py-2 px-4 border border-solid border-black outline-none'}
-                    required={true}
                 />
             </div>
             <div>
                 <label className={'text-xl font-bold'} htmlFor={'passwordCheck'}>패스워드 확인</label>
                 <p className={'text-gray-500'}>확인을 위해 패스워드를 다시 입력해주세요.</p>
-                <input
-                    id={'passwordCheck'}
-                    name={'passwordCheck'}
+                <RegisterFormInput
+                    idAndName={'passwordCheck'}
                     type={'password'}
                     onChange={handleFormChange}
                     value={form.passwordCheck}
-                    className={'py-2 px-4 border border-solid border-black outline-none'}
-                    required={true}
                 />
             </div>
             <div>
                 <label className={'text-xl font-bold'} htmlFor={'username'}>사용자 아이디</label>
                 <p className={'text-gray-500'}>사용자 아이디는 4자 이상 15자 이하의 영어 소문자, 숫자, 언더바만 허용됩니다.</p>
-                <input
-                    id={'username'}
-                    name={'username'}
+                <RegisterFormInput
+                    idAndName={'username'}
                     type={'text'}
                     onChange={handleFormChange}
                     value={form.username}
-                    className={'py-2 px-4 border border-solid border-black outline-none'}
-                    required={true}
                 />
-                <button
-                    type={'button'}
-                    className={'py-2 px-4 border border-solid border-black text-black'}
-                >중복 확인
-                </button>
+                <RegisterFormButton text={'유효성 확인'} />
             </div>
             <div>
                 <label className={'text-xl font-bold'} htmlFor={'nickname'}>닉네임</label>
-                <p className={'text-gray-500'}>사용자 아이디는 4자 이상 15자 이하의 영어 소문자, 숫자, 언더바만 허용됩니다.</p>
-                <input
-                    id={'nickname'}
-                    name={'nickname'}
+                <p className={'text-gray-500'}>닉네임은 1자 이상 15자 이하의 한글/영문자(대,소)/숫자만 허용됩니다.</p>
+                <RegisterFormInput
+                    idAndName={'nickname'}
                     type={'text'}
                     onChange={handleFormChange}
                     value={form.nickname}
-                    className={'py-2 px-4 border border-solid border-black outline-none'}
-                    required={true}
                 />
-                <button
-                    type={'button'}
-                    className={'py-2 px-4 border border-solid border-black text-black'}
-                >중복 확인
-                </button>
+                <RegisterFormButton text={'유효성 확인'} />
             </div>
-            <button
-                type='submit'
-                className={'w-full py-2 px-4 border border-solid border-black outline-none'}
-            >가입하기
-            </button>
+            <RegisterFormButton type='submit' text={'회원 가입'} />
         </form>
     );
 };
